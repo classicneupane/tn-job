@@ -22,7 +22,7 @@ import { onMounted, ref } from 'vue';
 import moment from 'moment'
 
 // import JobCard from './components/JobCard.vue'
-import {JobCard} from '../dist/index.es'
+import {JobCard} from '../dist'
 import '../dist/style.css'
 
 const firebaseConfig = {
