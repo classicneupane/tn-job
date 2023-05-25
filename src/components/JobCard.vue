@@ -83,7 +83,7 @@ const jobFeaturesComputed = computed(() => {
     return selected.filter(i => i.id === id)[0];
   };
 
-  props.jobFeatures.forEach(ft => {
+  props.jobFeatures.forEach((ft: JobFeature) => {
     const selectedFeature = getSelectedFeature(ft.id);
     if (selectedFeature) {
       if (ft.id === 'quotedPay') {

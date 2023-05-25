@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), dts()],
   build: {
     lib: {
-      entry: 'src/lib.ts',
+      entry: 'src/index.ts',
       formats: ['es'],
       name: "job",
     },
