@@ -1,11 +1,16 @@
 {
   "name": "@tn/job",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "module": "./dist/index.js",
   "exports": {
-    "import": "./dist/index.js",
-    "types": "./dist/index.d.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css" : {
+      "import": "./dist/style.css"
+    }
   },
   "types": "./dist/index.d.ts",
   "scripts": {
