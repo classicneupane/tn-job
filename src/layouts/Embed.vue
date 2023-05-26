@@ -2,11 +2,8 @@
 import { onMounted, ref, } from 'vue';
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, query, where, getDoc, doc } from 'firebase/firestore'
-import { Business } from './types'
-import JobCard from './components/JobCard.vue';
-// import { JobCard } from '@tn/job'
-// import '@tn/job/dist/style.css'
-// import { jobFeatures } from './jobFeatures'
+import { Business } from '../types'
+import JobCard from '../components/JobCard.vue';
 
 const props = defineProps<{
     id: string

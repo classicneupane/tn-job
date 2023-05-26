@@ -12,7 +12,7 @@ import { jobFeatures as jFeatures } from './job'
 const props = defineProps<{
   id: string;
   job: Job;
-  jobFeatures: JobFeature[]
+  jobFeatures?: JobFeature[]
   jobNewDays?: number
   permissions?: UserRole
   business?: Business | any

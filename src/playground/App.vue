@@ -16,13 +16,10 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
-import { BusinessFirebaesDocument, JobFirebaseDocument } from './types';
+import { BusinessFirebaesDocument, JobFirebaseDocument } from '../types';
 import { onMounted, ref } from 'vue';
 import moment from 'moment'
-
-// import JobCard from './components/JobCard.vue'
-import { JobCard } from '../dist'
-import '../dist/style.css'
+import JobCard from '../components/JobCard.vue'
 
 const firebaseConfig = {
   authDomain: 'freelancer-brian-b.firebaseapp.com',

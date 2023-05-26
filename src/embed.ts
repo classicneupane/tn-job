@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './Embed.vue'
+import App from './layouts/Embed.vue'
 
 const src = (document.currentScript as any).src as string;
 
