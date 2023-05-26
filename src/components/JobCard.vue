@@ -7,6 +7,7 @@ import JobFeatureChip from './JobFeatureChip.vue'
 import ButtonJobApply from './ButtonJobApply.vue';
 import { useBusiness } from './useBusiness';
 import { addressFormatter } from './utils'
+import { jobFeatures as jFeatures } from './job'
 
 const props = defineProps<{
   id: string;
@@ -83,7 +84,7 @@ const jobFeaturesComputed = computed(() => {
     return selected.filter(i => i.id === id)[0];
   };
 
-  props.jobFeatures.forEach((ft: JobFeature) => {
+  (props.jobFeatures || jFeatures).forEach((ft: JobFeature) => {
     const selectedFeature = getSelectedFeature(ft.id);
     if (selectedFeature) {
       if (ft.id === 'quotedPay') {
@@ -120,9 +121,9 @@ function postedFromNow() {
   return moment(props.job.date).fromNow();
 }
 
-function format(date: Date, fmt: string) {
-  return moment(date).format(fmt);
-}
+// function format(date: Date, fmt: string) {
+//   return moment(date).format(fmt);
+// }
 
 function showBusiness() {
   emit('click:business', props.job.businessId);
@@ -154,11 +155,11 @@ const linkJobDetail = computed(() => {
   return `/jobs/${props.id}`;
 });
 
-function onClickLearnMore(){
-  if(props.disableLearnMore){
+function onClickLearnMore() {
+  if (props.disableLearnMore) {
     return
   }
-  if(props.href){
+  if (props.href) {
     window.open(linkJobDetail.value, '_blank')
   }
   emit('click:learn-more', props.id)
@@ -254,8 +255,7 @@ function onClickLearnMore(){
         <div class="d-flex justify-center">
           <ButtonJobApply :disable-apply="disableApply" variant="outlined" :business="business" :job="job" />
           <div v-if="showLearnMore">
-            <v-btn rounded variant="outlined" color="primary" class="text-none ml-1"
-              @click="onClickLearnMore">
+            <v-btn rounded variant="outlined" color="primary" class="text-none ml-1" @click="onClickLearnMore">
               <span> Learn More</span>
             </v-btn>
           </div>

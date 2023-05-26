@@ -1,6 +1,4 @@
-import { JobFeature } from "../src/types";
-
-export const jobs = [];
+import { JobFeature } from "../types";
 
 export const groups = ['compensation', 'schedule', 'experience', 'benefits'];
 

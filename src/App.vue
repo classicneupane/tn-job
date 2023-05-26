@@ -4,7 +4,7 @@
       <v-container>
         <v-row>
           <v-col v-for="job in jobs" :key="job.id" cols="12" md="6" lg="4">
-            <JobCard :id="job.id" :job="job.data" :business="job.business?.data" :job-features="jobFeatures"></JobCard>
+            <JobCard :id="job.id" :job="job.data" :business="job.business?.data"></JobCard>
           </v-col>
         </v-row>
       </v-container>
@@ -17,12 +17,11 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 import { BusinessFirebaesDocument, JobFirebaseDocument } from './types';
-import { jobFeatures } from './job'
 import { onMounted, ref } from 'vue';
 import moment from 'moment'
 
 // import JobCard from './components/JobCard.vue'
-import {JobCard} from '../dist'
+import { JobCard } from '../dist'
 import '../dist/style.css'
 
 const firebaseConfig = {
@@ -88,6 +87,7 @@ async function fetchJobs() {
   const bizQ = await getDocs(refBusiness)
 
   const bizs = [] as BusinessFirebaesDocument[]
+
   bizQ.forEach(i => {
     bizs.push(firebaseDocFormatter(i) as any)
   });
@@ -114,7 +114,7 @@ async function fetchJobs() {
 </script>
 
 <style>
-.job-business-name{
+.job-business-name {
   cursor: pointer;
 }
 </style>
