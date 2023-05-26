@@ -16,7 +16,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:lib": "vue-tsc && vite build",
+    "build:embed": "vite build --config vite.config.embed",
     "preview": "vite preview"
   },
   "dependencies": {},
