@@ -65,6 +65,10 @@ onMounted(() => {
     })
 })
 
+function showJobDetail(id: string) {
+  window.open(`https://truro.biz/jobs/${id}`, '_blank');
+}
+
 </script>
 
 <template>
@@ -75,7 +79,7 @@ onMounted(() => {
             </div>
             <div class="v-row" v-else>
                 <div class="job-col v-col-md-6 v-col-lg-4 v-col-12" v-for="job in jobsData" :key="job.id">
-                    <JobCard v-bind="jobProps(job)" />
+                    <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail"/>
                 </div>
             </div>
         </div>
