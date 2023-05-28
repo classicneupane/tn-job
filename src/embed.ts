@@ -4,7 +4,7 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 import App from './layouts/Embed.vue'
-import 'vuetify/styles'
+import './assets/embed.scss';
 
 const vuetify = createVuetify({
     components,

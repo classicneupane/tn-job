@@ -77,10 +77,12 @@ function showJobDetail(id: string) {
             <div v-if="loading" class="job-loading">
                 Loading...
             </div>
-            <div class="v-row" v-else>
-                <div class="job-col v-col-md-6 v-col-lg-4 v-col-12" v-for="job in jobsData" :key="job.id">
-                    <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail"/>
-                </div>
+            <div v-else>
+                <v-row>
+                    <v-col cols="12" md="4" lg="3" v-for="job in jobsData" :key="job.id">
+                        <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail"/>
+                    </v-col>
+                </v-row>
             </div>
         </div>
     </v-app>

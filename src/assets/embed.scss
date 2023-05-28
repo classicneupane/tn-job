@@ -1,0 +1,19 @@
+@use "vuetify" with ($reset: false);
+
+div[data-key="tb-jobs"] {
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    line-height: 1.5;
+    font-size: 1rem;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    *,
+    :before,
+    :after {
+        box-sizing: inherit
+    }
+}
