@@ -12,10 +12,10 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        dir: 'dist-embed',
+        dir: 'dist-embed/jobs',
         assetFileNames: '[name][extname]',
         chunkFileNames: '[chunks]/[name].[hash].js',
-        entryFileNames: 'jobs.js',
+        entryFileNames: 'index.js',
       },
     },
   },
