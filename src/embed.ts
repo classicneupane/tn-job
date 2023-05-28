@@ -1,70 +1,43 @@
 import { createApp } from 'vue'
-import App from './layouts/Embed.vue'
-
-const src = (document.currentScript as any).src as string;
-
-// import vuetifyStyles from 'vuetify/styles/main.css'
-import 'vuetify/styles'
-import {createVuetify} from 'vuetify'
-import {VBtn, VIcon, VChip, VRow, VCol, VDialog, VMenu, VSpacer, VImg} from 'vuetify/components'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+import App from './layouts/Embed.vue'
+import 'vuetify/styles'
+
 const vuetify = createVuetify({
-    components: {
-        VBtn,
-        VIcon,
-        VChip,
-        VRow,
-        VCol,
-        VDialog,
-        VMenu,
-        VSpacer,
-        VImg
-    },
+    components,
     directives
 })
 
-// function injectCss(styleData: string){
-//     let link = document.createElement("style") as any
-//     link.rel = "stylesheet"
-//     link.type = "text/css"
-//     link.textContent = styleData
-
-//     try{
-//             document.body.appendChild(link)
-//     }
-//     catch{
-//             document.firstElementChild?.appendChild(link)
-//     }
-// }
-
-// injectCss(vuetifyStyles)
-
-function getParameterByName(name:string, url = window.location.href) {
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+const props = {
+    id: '',
+    key: ''
 }
 
-const BUSINESS_ID = getParameterByName('id', src) as string
+const target = `[data-key="tb-jobs"]`;
 
-const target = '#tb-jobs';
-
-function mount(){
+function mount() {
     const targetEl = document.querySelector(target)
-    if(targetEl){
-        const app = createApp(App, {id: BUSINESS_ID})
+
+    props.key = targetEl?.getAttribute('data-key') || ''
+    props.id = targetEl?.getAttribute('data-biz-id') || ''
+
+    if (targetEl) {
+        const app = createApp(App, props)
         app.use(vuetify)
         app.mount(target)
     }
-    else{
+    else {
         requestAnimationFrame(mount)
     }
 }
 
-window.addEventListener("load", () =>{
+window.addEventListener("load", () => {
     mount()
 })
+
+if (document.readyState === 'complete') {
+    mount()
+}
