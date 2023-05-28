@@ -2,6 +2,8 @@
 import { Business, Job } from '../types';
 import { ref, computed, onMounted, reactive } from 'vue'
 import { addressFormatter, getPhoneNumbers } from './utils'
+import BIcon from './BIcon.vue';
+import {mdiClose, mdiPhone, mdiMessage} from '@mdi/js'
 
 const props = defineProps<{
     color?: string;
@@ -72,7 +74,7 @@ function applyJob() {
                 <v-card-title class="d-flex">
                     <v-spacer />
                     <v-btn icon variant="text" @click="dialogs.value = false">
-                        <v-icon>mdi-close</v-icon>
+                        <b-icon :icon="mdiClose"></b-icon>
                     </v-btn>
                 </v-card-title>
                 <v-container>
@@ -84,7 +86,7 @@ function applyJob() {
                             <a :href="`tel:${phones[0]}`" target="_blank" class="decoration-none">
                                 <div class="d-flex flex-column justify-center align-center">
                                     <v-btn variant="tonal" icon color="info">
-                                        <v-icon> mdi-phone </v-icon>
+                                        <b-icon :icon="mdiPhone"></b-icon>
                                     </v-btn>
                                     <span class="text-info mt-1"> Call </span>
                                 </div>
@@ -92,7 +94,7 @@ function applyJob() {
                             <a :href="`sms:${phones[0]}`" target="_blank" class="decoration-none">
                                 <div class="d-flex flex-column justify-center align-center ml-10">
                                     <v-btn variant="tonal" icon color="info">
-                                        <v-icon> mdi-message </v-icon>
+                                        <b-icon :icon="mdiMessage"></b-icon>
                                     </v-btn>
                                     <span class="text-info mt-1"> Message </span>
                                 </div>

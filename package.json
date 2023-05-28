@@ -1,6 +1,6 @@
 {
   "name": "truronews-job",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "module": "./dist/index.js",
   "files": [
@@ -13,7 +13,7 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
-    "./dist/style.css" : {
+    "./dist/style.css": {
       "import": "./dist/style.css"
     }
   },
@@ -24,7 +24,10 @@
     "build:embed": "vite build --config vite.config.embed",
     "preview": "vite preview"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
+    "@mdi/js": "^7.2.96"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
     "firebase": "^9.22.0",
