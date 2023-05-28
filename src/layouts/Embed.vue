@@ -72,7 +72,7 @@ function showJobDetail(id: string) {
 </script>
 
 <template>
-    <v-app>
+    <!-- <v-app> -->
         <div class="tb-jobs-wrapper">
             <div v-if="loading" class="job-loading">
                 Loading...
@@ -85,5 +85,5 @@ function showJobDetail(id: string) {
                 </v-row>
             </div>
         </div>
-    </v-app>
+    <!-- </v-app> -->
 </template>

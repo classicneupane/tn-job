@@ -17,3 +17,15 @@ div[data-key="tb-jobs"] {
         box-sizing: inherit
     }
 }
+
+.tb-jobs-footer{
+    text-align: center;
+    color: grey;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+
+    a{
+        text-decoration: none;
+        color: grey;
+    }
+}
