@@ -85,5 +85,8 @@ function showJobDetail(id: string) {
                 </v-row>
             </div>
         </div>
+        <div class="tb-jobs-footer">
+            powered by <a href="https://truro.biz" target="_blank">truro.biz</a>
+        </div>
     <!-- </v-app> -->
 </template>
