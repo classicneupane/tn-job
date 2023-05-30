@@ -47,11 +47,11 @@ async function getJobs(id: string) {
 }
 
 function jobProps(j: any): any {
-  return {
-    id: j.id,
-    job: j.data,
-    business: businessData.value,
-  }
+    return {
+        id: j.id,
+        job: j.data,
+        business: businessData.value,
+    }
 }
 
 onMounted(() => {
@@ -66,27 +66,29 @@ onMounted(() => {
 })
 
 function showJobDetail(id: string) {
-  window.open(`https://truro.biz/jobs/${id}`, '_blank');
+    window.open(`https://truro.biz/jobs/${id}`, '_blank');
 }
 
 </script>
 
 <template>
-    <!-- <v-app> -->
-        <div class="tb-jobs-wrapper">
-            <div v-if="loading" class="job-loading">
-                Loading...
-            </div>
-            <div v-else>
-                <v-row>
-                    <v-col cols="12" md="4" lg="3" v-for="job in jobsData" :key="job.id">
-                        <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail"/>
-                    </v-col>
-                </v-row>
-            </div>
+    <div class="tbj-wrapper">
+        <div v-if="loading" class="job-loading">
+            Loading...
         </div>
-        <div class="tb-jobs-footer">
+        <div v-else>
+            <v-row>
+                <v-col cols="12" md="4" lg="3" v-for="job in jobsData" :key="job.id">
+                    <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail" />
+                </v-col>
+            </v-row>
+        </div>
+        <div class="tbj-footer">
             powered by <a href="https://truro.biz" target="_blank">truro.biz</a>
         </div>
-    <!-- </v-app> -->
+    </div>
 </template>
+
+<style lang=scss>
+@import '../assets/embed.scss';
+</style>

@@ -4,9 +4,9 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 import App from '../layouts/Embed.vue'
-import '../assets/embed.scss';
 
 const vuetify = createVuetify({
+    theme: false,
     components,
     directives
 })
