@@ -51,7 +51,7 @@ async function getJobs(id: string) {
 function jobProps(j: any): any {
     return {
         id: j.id,
-        job: {...j.data, subtitle: "OK"},
+        job: j.data,
         business: businessData.value,
     }
 }
