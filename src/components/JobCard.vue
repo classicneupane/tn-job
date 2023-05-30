@@ -5,9 +5,9 @@ import moment from 'moment'
 
 import JobFeatureChip from './JobFeatureChip.vue'
 import ButtonJobApply from './ButtonJobApply.vue';
-import { useBusiness } from './useBusiness';
-import { addressFormatter } from './utils'
-import { jobFeatures as jFeatures } from './job'
+import { useBusiness } from '../composables/useBusiness';
+import { addressFormatter } from '../utils'
+import { jobFeatures as jFeatures } from '../composables/features'
 
 const props = defineProps<{
   id: string;

@@ -3,8 +3,8 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-import App from './layouts/Embed.vue'
-import './assets/embed.scss';
+import App from '../layouts/Embed.vue'
+import '../assets/embed.scss';
 
 const vuetify = createVuetify({
     components,

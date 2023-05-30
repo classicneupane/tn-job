@@ -4,7 +4,7 @@
       <v-container>
         <v-row>
           <v-col v-for="job in jobs" :key="job.id" cols="12" md="6" lg="4">
-            <JobCard :id="job.id" :job="job.data" :business="job.business?.data"></JobCard>
+            <JobCard :id="job.id" :job="job.data" :business="job.business?.data" @click:learn-more="showLearnMore"></JobCard>
           </v-col>
         </v-row>
       </v-container>
@@ -39,6 +39,10 @@ function parseDate(date: any) {
     return moment(date).toDate();
   }
   return date;
+}
+
+function showLearnMore(id:string){
+  console.log(id)
 }
 
 function firebaseDataFormatter(data: any) {

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [vue(), dts()],
   build: {
     lib: {
-      entry: 'src/index.ts',
+      entry: 'src/lib/index.ts',
       formats: ['es'],
       name: "job",
     },

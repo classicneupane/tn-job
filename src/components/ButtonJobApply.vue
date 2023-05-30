@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Business, Job } from '../types';
 import { ref, computed, onMounted, reactive } from 'vue'
-import { addressFormatter, getPhoneNumbers } from './utils'
+import { addressFormatter, getPhoneNumbers } from '../utils'
 import BIcon from './BIcon.vue';
 import {mdiClose, mdiPhone, mdiMessage} from '@mdi/js'
 

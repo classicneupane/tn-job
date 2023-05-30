@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [vue(), dts()],
   build: {
     lib: {
-      entry: 'src/embed.ts',
+      entry: 'src/lib/embed.ts',
       formats: ['umd'],
       name: "job",
     },

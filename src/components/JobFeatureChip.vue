@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { JobFeature } from '../types';
 
-const props = defineProps<{
+defineProps<{
   feature: JobFeature;
   selected?: boolean;
 }>();
