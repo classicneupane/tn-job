@@ -1,3 +1,5 @@
+import { EmbedJobConfig } from "./types"
+
 export interface EmbedCol{
     xs: number
     sm: number
@@ -6,6 +8,6 @@ export interface EmbedCol{
     xl: number
 }
 
-export interface EmbedConfig{
+export interface EmbedConfig extends EmbedJobConfig{
     cols: EmbedCol
 }

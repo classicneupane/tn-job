@@ -100,10 +100,12 @@ export interface ChatActivity {
   data: any;
 }
 
+export type SubtitlePosition = 'belowJobTitle' | 'aboveLearnMore';
+
 export interface EmbedJobConfig {
   showBizName: boolean;
   showBizAddress: boolean;
   showLogo: boolean;
   showSubtitle: boolean;
-  subtitlePosition: 'belowJobTitle' | 'aboveLearnMore';
+  subtitlePosition: SubtitlePosition
 }

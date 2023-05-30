@@ -22,7 +22,8 @@
     "dev": "vite",
     "build": "vite build",
     "build:embed": "vite build --config vite.config.embed",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",

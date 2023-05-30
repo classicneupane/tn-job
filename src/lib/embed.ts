@@ -19,6 +19,7 @@ import * as directives from 'vuetify/directives'
 
 import App from '../layouts/Embed.vue'
 import { EmbedConfig } from '../embed.types'
+import { SubtitlePosition } from '../types'
 
 const vuetify = createVuetify({
     theme: false,
@@ -49,29 +50,83 @@ const props = {
             md: 4,
             lg: 3,
             xl: 3
-        }
+        },
+        showBizAddress: true,
+        showBizName: true,
+        showLogo: true,
+        showSubtitle: true,
+        subtitlePosition: 'belowJobTitle'
     } as EmbedConfig
+}
+
+const configAttrs = {
+    showBizAddress: 'biz-addr',
+    showBizName: 'biz-name',
+    showLogo: "biz-logo",
+    subtitlePosition: "subtitle",
+    config: {
+        xs: "xs",
+        sm: "sm",
+        md: "md",
+        lg: "lg",
+        xl: "xl"
+    }
 }
 
 const target = `[data-key="tb-jobs"]`;
 
-function mount() {
-    const targetEl = document.querySelector(target)
+function parseConfig(el: Element | null) {
+    if (!el) return;
+    const falseValues = ['0', 'false'];
 
-    props.key = targetEl?.getAttribute('data-key') || ''
-    props.id = targetEl?.getAttribute('data-biz-id') || ''
+    props.key = el.getAttribute('data-key') || ''
+    props.id = el.getAttribute('data-biz-id') || ''
 
-    const parseAttr = (key: string) => {
-        try {
-            return JSON.parse(targetEl?.getAttribute(key) || '')
+    const getAttrValue = (key: string, defaultValue: any) => {
+        const val = el.getAttribute(key)
+        if (val) {
+            if (falseValues.includes(val)) {
+                return false
+            }
         }
-        catch (e) {
-            console.error(e)
+        if(key==='subtitle'){
+            return val || 'belowJobTitle'
         }
-        return {}
+        return defaultValue
     }
 
-    props.config.cols = { ...props.config.cols, ...parseAttr("data-cols") };
+    props.config.showBizName = getAttrValue(configAttrs.showBizName, true)
+    props.config.showBizAddress = getAttrValue(configAttrs.showBizAddress, true)
+    props.config.showLogo = getAttrValue(configAttrs.showLogo, true)
+
+    const subtitle = getAttrValue(configAttrs.subtitlePosition, '')
+    const subtitlePosition = ['aboveLearnMore', 'belowJobTitle'] as SubtitlePosition[]
+
+    if (subtitle) {
+        if (falseValues.includes(subtitle)) {
+            props.config.showSubtitle = false
+        }
+        else {
+            props.config.showSubtitle = true
+            if (subtitlePosition.includes(subtitle)) {
+                props.config.subtitlePosition = subtitle
+            }
+        }
+    }
+    else{
+        props.config.showSubtitle = false
+    }
+
+    const cols = ['xs', 'sm', 'md', 'lg', 'xl'] as Array<keyof typeof props.config.cols>
+    cols.forEach((col) => {
+        props.config.cols[col] = Number(el.getAttribute(col)) || props.config.cols[col]
+    });
+}
+
+function mount() {
+    const targetEl = document.querySelector(target);
+
+    parseConfig(targetEl);
 
     if (targetEl) {
         const app = createApp(App, props)

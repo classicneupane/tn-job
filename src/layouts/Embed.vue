@@ -51,7 +51,7 @@ async function getJobs(id: string) {
 function jobProps(j: any): any {
     return {
         id: j.id,
-        job: j.data,
+        job: {...j.data, subtitle: "OK"},
         business: businessData.value,
     }
 }
@@ -81,7 +81,7 @@ function showJobDetail(id: string) {
         <div v-else>
             <v-row>
                 <v-col v-bind="props.config.cols" v-for="job in jobsData" :key="job.id">
-                    <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail" />
+                    <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail" :config="config"/>
                 </v-col>
             </v-row>
         </div>
