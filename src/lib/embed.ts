@@ -1,13 +1,40 @@
 import { createApp } from 'vue'
 import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
+import {
+    VRow,
+    VCol,
+    VBtn,
+    VImg,
+    VSpacer,
+    VAvatar,
+    VSheet,
+    VChip,
+    VDialog,
+    VCard,
+    VCardTitle,
+    VContainer,
+
+} from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
 import App from '../layouts/Embed.vue'
 
 const vuetify = createVuetify({
     theme: false,
-    components,
+    components : {
+        VRow,
+        VCol,
+        VBtn,
+        VImg,
+        VSpacer,
+        VAvatar,
+        VSheet,
+        VChip,
+        VDialog,
+        VCard,
+        VCardTitle,
+        VContainer,
+    },
     directives
 })
 
