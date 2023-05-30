@@ -266,7 +266,7 @@ function onClickLearnMore() {
 </template>
 
 <style scoped lang="scss">
-@import './colors.scss';
+@import '../assets/colors.scss';
 
 .b-container {
   min-height: 100px;
