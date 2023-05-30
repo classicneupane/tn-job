@@ -4,9 +4,11 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, query, where, getDoc, doc } from 'firebase/firestore'
 import { Business } from '../types'
 import JobCard from '../components/JobCard.vue';
+import { EmbedConfig } from '../embed.types';
 
 const props = defineProps<{
-    id: string
+    id: string,
+    config: EmbedConfig
 }>()
 
 const BUSINESS_ID = props.id
@@ -78,7 +80,7 @@ function showJobDetail(id: string) {
         </div>
         <div v-else>
             <v-row>
-                <v-col cols="12" md="4" lg="3" v-for="job in jobsData" :key="job.id">
+                <v-col v-bind="props.config.cols" v-for="job in jobsData" :key="job.id">
                     <JobCard v-bind="jobProps(job)" @click:learn-more="showJobDetail" />
                 </v-col>
             </v-row>
