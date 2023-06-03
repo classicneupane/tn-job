@@ -1,6 +1,6 @@
 {
   "name": "truronews-job",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "module": "./dist/index.js",
   "files": [
@@ -11,6 +11,10 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./features" : {
+      "import": "./dist/composables/features.js",
       "types": "./dist/index.d.ts"
     },
     "./dist/style.css": {
