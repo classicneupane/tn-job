@@ -22,6 +22,7 @@ const props = defineProps<{
   disableLearnMore?: boolean
   disableApply?: boolean
   config?: EmbedJobConfig
+  showPostedDate?: boolean
   href?: boolean
   theme?: 'light' | 'dark'
 }>();
@@ -246,7 +247,7 @@ function onClickLearnMore() {
       </div>
     </div>
     <div class="d-flex flex-wrap align-end mt-2">
-      <div class="text-grey-lighten-1 text-caption">
+      <div class="text-grey-lighten-1 text-caption" v-if="showPostedDate">
         Posted<br />
         {{ postedFromNow() }}
       </div>
