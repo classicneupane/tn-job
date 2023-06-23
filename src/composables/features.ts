@@ -221,6 +221,13 @@ export const jobFeatures = [
     group: 'benefits',
   },
   {
+    id: 'employeeDiscounts',
+    label: 'Employee Discounts',
+    color: 'cyan',
+    textColor: 'white',
+    group: 'benefits',
+  },
+  {
     id: 'benefits',
     label: 'Benefits',
     color: 'cyan',
